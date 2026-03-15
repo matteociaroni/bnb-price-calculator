@@ -178,13 +178,6 @@ function App() {
   return (
     <div className="page">
       <header className="topbar">
-        <div className="brand">
-          <div className="mark" aria-hidden="true" />
-          <div>
-            <div className="title">BnB Price Calculator</div>
-            <div className="subtitle">Price it right, every night.</div>
-          </div>
-        </div>
         <button
           type="button"
           className="paramsToggle"
