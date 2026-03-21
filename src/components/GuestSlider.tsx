@@ -35,7 +35,6 @@ export function GuestSlider({
           {value}
         </div>
       </div>
-      {/* range hint removed to keep the UI clean */}
     </label>
   )
 }

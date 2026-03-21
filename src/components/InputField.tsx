@@ -7,7 +7,6 @@ export type InputFieldProps = {
   ariaLabel?: string
   prefix?: string
   suffix?: string
-  hint?: string
 }
 
 export function InputField({
@@ -17,7 +16,6 @@ export function InputField({
   ariaLabel,
   prefix,
   suffix,
-  hint,
 }: InputFieldProps) {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value)
@@ -31,8 +29,6 @@ export function InputField({
         <input inputMode="decimal" value={value} onChange={handleChange} aria-label={ariaLabel ?? label} />
         {suffix && <span className="suffix">{suffix}</span>}
       </div>
-      {hint && <span className="hint">{hint}</span>}
     </label>
   )
 }
-

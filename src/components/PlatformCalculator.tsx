@@ -22,7 +22,6 @@ export type TariffRow = {
  */
 export type PlatformCalculatorProps = {
   name: 'Airbnb' | 'Booking'
-  basePriceLabelHint: string
   basePriceInput: string
   setBasePriceInput: (value: string) => void
   otherGuestPriceInput: string
@@ -135,7 +134,6 @@ const BreakdownRow = ({ label, value, formula, emphasis = false }: BreakdownRowP
 
 function PriceInputs({
   name,
-  basePriceLabelHint,
   basePriceInput,
   setBasePriceInput,
   otherGuestPriceInput,
@@ -144,7 +142,7 @@ function PriceInputs({
   setNonRefundableDiscountInput,
 }: Pick<
   PlatformCalculatorProps,
-  'name' | 'basePriceLabelHint' | 'basePriceInput' | 'setBasePriceInput' | 'otherGuestPriceInput' | 'setOtherGuestPriceInput' | 'nonRefundableDiscountInput' | 'setNonRefundableDiscountInput'
+  'name' | 'basePriceInput' | 'setBasePriceInput' | 'otherGuestPriceInput' | 'setOtherGuestPriceInput' | 'nonRefundableDiscountInput' | 'setNonRefundableDiscountInput'
 >) {
   const priceFields = [
     {
@@ -153,7 +151,6 @@ function PriceInputs({
       value: basePriceInput,
       onChange: setBasePriceInput,
       prefix: '€',
-      hint: basePriceLabelHint,
       ariaLabel: `Base price for ${name}`,
     },
     {
@@ -162,7 +159,6 @@ function PriceInputs({
       value: otherGuestPriceInput,
       onChange: setOtherGuestPriceInput,
       prefix: '€',
-      hint: 'Extra amount per additional guest.',
       ariaLabel: `Other guest price for ${name}`,
     },
   ] as const
@@ -177,7 +173,6 @@ function PriceInputs({
             value={field.value}
             onChange={field.onChange}
             prefix={field.prefix}
-            hint={field.hint}
             ariaLabel={field.ariaLabel}
           />
         ))}
@@ -188,7 +183,6 @@ function PriceInputs({
         value={nonRefundableDiscountInput}
         onChange={setNonRefundableDiscountInput}
         suffix="%"
-        hint=""
         ariaLabel={`Non refundable discount for ${name}`}
       />
     </div>
@@ -197,7 +191,6 @@ function PriceInputs({
 
 export function PlatformCalculator({
   name,
-  basePriceLabelHint,
   basePriceInput,
   setBasePriceInput,
   otherGuestPriceInput,
@@ -310,7 +303,6 @@ export function PlatformCalculator({
       )}
       <PriceInputs
         name={name}
-        basePriceLabelHint={basePriceLabelHint}
         basePriceInput={basePriceInput}
         setBasePriceInput={setBasePriceInput}
         otherGuestPriceInput={otherGuestPriceInput}

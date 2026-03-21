@@ -225,7 +225,6 @@ function App() {
             <div className="platformPanel airbnbPanel">
               <PlatformCalculator
                 name="Airbnb"
-                basePriceLabelHint="Price to enter in your Airbnb calendar."
                 basePriceInput={basePrice.raw}
                 setBasePriceInput={basePrice.setRaw}
                 otherGuestPriceInput={otherGuestPrice.raw}
@@ -242,7 +241,6 @@ function App() {
             <div className="platformPanel bookingPanel">
               <PlatformCalculator
                 name="Booking"
-                basePriceLabelHint="Price to enter in your Booking calendar."
                 basePriceInput={bookingBasePrice.raw}
                 setBasePriceInput={bookingBasePrice.setRaw}
                 otherGuestPriceInput={bookingOtherGuestPrice.raw}
