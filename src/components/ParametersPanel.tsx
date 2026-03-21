@@ -1,4 +1,5 @@
 import { InputField } from './InputField'
+import { ModalPanel } from './ModalPanel'
 
 type StringSetter = (value: string) => void
 
@@ -42,8 +43,6 @@ export function ParametersPanel({
   bookingTransactionFeePctInput,
   setBookingTransactionFeePctInput,
 }: ParametersPanelProps) {
-  if (!isOpen) return null
-
   const globalFields: ParameterField[] = [
     { key: 'vatPct', label: 'VAT percentage', value: vatPctInput, onChange: setVatPctInput },
     { key: 'flatTaxPct', label: 'Flat tax on rental income', value: flatTaxPctInput, onChange: setFlatTaxPctInput },
@@ -65,43 +64,30 @@ export function ParametersPanel({
   ]
 
   return (
-    <div className="paramsOverlay" onClick={onClose}>
-      <aside
-        className="card parametersDrawer"
-        onClick={(e) => e.stopPropagation()}
-        aria-label="Parameters panel"
-      >
-        <div className="cardHeader">
-          <h2>Parameters</h2>
-          <button type="button" className="paramsClose" onClick={onClose} aria-label="Close parameters panel">
-            ×
-          </button>
+    <ModalPanel isOpen={isOpen} onClose={onClose} ariaLabel="Parameters panel" title="Parameters">
+      <div className="grid">
+        <div className="feesRow">
+          {globalFields.map((field) => (
+            <InputField key={field.key} label={field.label} value={field.value} onChange={field.onChange} suffix="%" />
+          ))}
         </div>
 
-        <div className="grid">
-          <div className="feesRow">
-            {globalFields.map((field) => (
-              <InputField key={field.key} label={field.label} value={field.value} onChange={field.onChange} suffix="%" />
-            ))}
-          </div>
+        <div className="sectionLabel">Airbnb fees</div>
 
-          <div className="sectionLabel">Airbnb fees</div>
-
-          <div className="feesRow">
-            {airbnbFields.map((field) => (
-              <InputField key={field.key} label={field.label} value={field.value} onChange={field.onChange} suffix="%" />
-            ))}
-          </div>
-
-          <div className="sectionLabel">Booking fees</div>
-
-          <div className="feesRow">
-            {bookingFields.map((field) => (
-              <InputField key={field.key} label={field.label} value={field.value} onChange={field.onChange} suffix="%" />
-            ))}
-          </div>
+        <div className="feesRow">
+          {airbnbFields.map((field) => (
+            <InputField key={field.key} label={field.label} value={field.value} onChange={field.onChange} suffix="%" />
+          ))}
         </div>
-      </aside>
-    </div>
+
+        <div className="sectionLabel">Booking fees</div>
+
+        <div className="feesRow">
+          {bookingFields.map((field) => (
+            <InputField key={field.key} label={field.label} value={field.value} onChange={field.onChange} suffix="%" />
+          ))}
+        </div>
+      </div>
+    </ModalPanel>
   )
 }

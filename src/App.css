@@ -407,49 +407,9 @@
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
 }
 
-.detailModalOverlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-  z-index: 25;
-}
-
-.detailModal {
+.detailModalPanel {
   width: min(520px, 95vw);
   max-height: 90vh;
-  overflow: auto;
-  background: var(--panel);
-  border-radius: 18px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  padding: 20px;
-}
-
-.detailModalHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.detailModalTitle {
-  margin: 4px 0 0;
-  font-size: 1rem;
-  color: var(--text-h);
-}
-
-.detailModalClose {
-  border: 0;
-  background: transparent;
-  color: var(--text-h);
-  font-size: 1.5rem;
-  line-height: 1;
-  cursor: pointer;
 }
 
 .detailRows {

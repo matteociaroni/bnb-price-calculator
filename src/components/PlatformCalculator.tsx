@@ -1,5 +1,6 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import { InputField } from './InputField'
+import { ModalPanel } from './ModalPanel'
 import type { PlatformResults } from '../calculations'
 
 /**
@@ -344,27 +345,20 @@ export function PlatformCalculator({
         </table>
       </div>
 
-      {effectiveDetailView && activeTariff && derivedByTariff[activeTariff.key] && (
-        <div className="detailModalOverlay" role="dialog" aria-modal="true">
-          <div className="detailModal">
-            <div className="detailModalHeader">
-              <div>
-                <span className="pillLabel">{effectiveDetailView.side === 'guest' ? 'Guest pays' : 'Host takes'} breakdown</span>
-                <h4 className="detailModalTitle">
-                  {name} · {activeTariff.label}
-                </h4>
-              </div>
-              <button type="button" className="detailModalClose" onClick={() => setDetailView(null)}>
-                ×
-              </button>
-            </div>
-
-            {effectiveDetailView.side === 'guest'
-              ? renderGuestDetails(activeTariff, derivedByTariff[activeTariff.key])
-              : renderHostDetails(activeTariff, derivedByTariff[activeTariff.key])}
-           </div>
-         </div>
-       )}
-     </div>
-   )
- }
+      <ModalPanel
+        isOpen={Boolean(effectiveDetailView && activeTariff && derivedByTariff[activeTariff.key])}
+        onClose={() => setDetailView(null)}
+        ariaLabel="Calculation breakdown"
+        title={activeTariff ? `${name} · ${activeTariff.label}` : name}
+        subtitle={effectiveDetailView ? `${effectiveDetailView.side === 'guest' ? 'Guest pays' : 'Host takes'} breakdown` : undefined}
+        className="detailModalPanel"
+      >
+        {effectiveDetailView && activeTariff && derivedByTariff[activeTariff.key]
+          ? effectiveDetailView.side === 'guest'
+            ? renderGuestDetails(activeTariff, derivedByTariff[activeTariff.key])
+            : renderHostDetails(activeTariff, derivedByTariff[activeTariff.key])
+          : null}
+      </ModalPanel>
+    </div>
+  )
+}
