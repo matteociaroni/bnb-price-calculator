@@ -18,6 +18,13 @@ export type ParametersPanelProps = {
   setBookingTransactionFeePctInput: Dispatch<SetStateAction<string>>
 }
 
+type ParameterField = {
+  key: string
+  label: string
+  value: string
+  onChange: Dispatch<SetStateAction<string>>
+}
+
 export function ParametersPanel({
   isOpen,
   onClose,
@@ -36,6 +43,26 @@ export function ParametersPanel({
 }: ParametersPanelProps) {
   if (!isOpen) return null
 
+  const globalFields: ParameterField[] = [
+    { key: 'vatPct', label: 'VAT percentage', value: vatPctInput, onChange: setVatPctInput },
+    { key: 'flatTaxPct', label: 'Flat tax on rental income', value: flatTaxPctInput, onChange: setFlatTaxPctInput },
+  ]
+
+  const airbnbFields: ParameterField[] = [
+    { key: 'airbnbGuestFeePct', label: 'Guest fee', value: airbnbGuestFeePctInput, onChange: setAirbnbGuestFeePctInput },
+    { key: 'airbnbHostFeePct', label: 'Host fee', value: airbnbHostFeePctInput, onChange: setAirbnbHostFeePctInput },
+  ]
+
+  const bookingFields: ParameterField[] = [
+    { key: 'bookingHostFeePct', label: 'Host fee', value: bookingHostFeePctInput, onChange: setBookingHostFeePctInput },
+    {
+      key: 'bookingTransactionFeePct',
+      label: 'Transaction fee',
+      value: bookingTransactionFeePctInput,
+      onChange: setBookingTransactionFeePctInput,
+    },
+  ]
+
   return (
     <div className="paramsOverlay" onClick={onClose}>
       <aside
@@ -52,55 +79,25 @@ export function ParametersPanel({
 
         <div className="grid">
           <div className="feesRow">
-            <InputField
-              label="VAT percentage"
-              value={vatPctInput}
-              onChange={setVatPctInput}
-              suffix="%"
-            />
-
-            <InputField
-              label="Flat tax on rental income"
-              value={flatTaxPctInput}
-              onChange={setFlatTaxPctInput}
-              suffix="%"
-            />
+            {globalFields.map((field) => (
+              <InputField key={field.key} label={field.label} value={field.value} onChange={field.onChange} suffix="%" />
+            ))}
           </div>
 
           <div className="sectionLabel">Airbnb fees</div>
 
           <div className="feesRow">
-            <InputField
-              label="Guest fee"
-              value={airbnbGuestFeePctInput}
-              onChange={setAirbnbGuestFeePctInput}
-              suffix="%"
-            />
-
-            <InputField
-              label="Host fee"
-              value={airbnbHostFeePctInput}
-              onChange={setAirbnbHostFeePctInput}
-              suffix="%"
-            />
+            {airbnbFields.map((field) => (
+              <InputField key={field.key} label={field.label} value={field.value} onChange={field.onChange} suffix="%" />
+            ))}
           </div>
 
           <div className="sectionLabel">Booking fees</div>
 
           <div className="feesRow">
-            <InputField
-              label="Host fee"
-              value={bookingHostFeePctInput}
-              onChange={setBookingHostFeePctInput}
-              suffix="%"
-            />
-
-            <InputField
-              label="Transaction fee"
-              value={bookingTransactionFeePctInput}
-              onChange={setBookingTransactionFeePctInput}
-              suffix="%"
-            />
+            {bookingFields.map((field) => (
+              <InputField key={field.key} label={field.label} value={field.value} onChange={field.onChange} suffix="%" />
+            ))}
           </div>
         </div>
       </aside>
