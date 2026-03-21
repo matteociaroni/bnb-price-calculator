@@ -3,6 +3,7 @@ import { BadgePercent, CreditCard, Landmark, Euro, UserPlus } from 'lucide-react
 import { InputField } from './InputField'
 import { ModalPanel } from './ModalPanel'
 import type { PlatformResults } from '../calculations'
+import type { StringSetter } from '../types'
 
 /**
  * Describes a single rate row with precomputed results for a platform.
@@ -25,15 +26,15 @@ export type TariffRow = {
 export type PlatformCalculatorProps = {
   name: 'Airbnb' | 'Booking'
   basePriceInput: string
-  setBasePriceInput: (value: string) => void
+  setBasePriceInput: StringSetter
   otherGuestPriceInput: string
-  setOtherGuestPriceInput: (value: string) => void
+  setOtherGuestPriceInput: StringSetter
   guests: number
   nights: number
   currency: Intl.NumberFormat
   tariffs: TariffRow[]
   nonRefundableDiscountInput: string
-  setNonRefundableDiscountInput: (value: string) => void
+  setNonRefundableDiscountInput: StringSetter
   showTitle?: boolean
   headerAdornment?: ReactNode
 }

@@ -1,10 +1,11 @@
 import type { ChangeEvent, ReactNode } from 'react'
+import type { StringSetter } from '../types'
 
 export type InputFieldProps = {
   label: string
   icon?: ReactNode
   value: string
-  onChange: (value: string) => void
+  onChange: StringSetter
   ariaLabel?: string
   prefix?: string
   suffix?: string

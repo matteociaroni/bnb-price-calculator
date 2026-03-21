@@ -2,8 +2,7 @@ import { InputField } from './InputField'
 import { ModalPanel } from './ModalPanel'
 import { BadgePercent, Coins, Landmark, Percent, ReceiptText } from 'lucide-react'
 import type { ReactNode } from 'react'
-
-type StringSetter = (value: string) => void
+import type { StringSetter } from '../types'
 
 export type ParametersPanelProps = {
   isOpen: boolean
