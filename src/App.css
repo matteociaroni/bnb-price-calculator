@@ -334,11 +334,12 @@
 .paramsOverlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.82);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 20;
+  backdrop-filter: blur(2px);
 }
 
 .parametersDrawer {
@@ -346,7 +347,8 @@
   max-height: 90vh;
   margin: 0;
   overflow: auto;
-  background: var(--panel);
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .paramsClose {
