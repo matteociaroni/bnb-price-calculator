@@ -105,7 +105,7 @@ export function ParametersPanel({
   ]
 
   return (
-    <ModalPanel isOpen={isOpen} onClose={onClose} ariaLabel="Parameters panel" title="Parameters">
+    <ModalPanel isOpen={isOpen} onClose={onClose} closeButtonLabel="Close parameters panel" title="Parameters">
       <div className="grid">
         <div className="feesRow">
           {globalFields.map((field) => (

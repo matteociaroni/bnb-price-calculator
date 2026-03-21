@@ -3,7 +3,7 @@ import { useEffect, useId, useRef, type KeyboardEvent, type ReactNode } from 're
 type ModalPanelProps = {
   isOpen: boolean
   onClose: () => void
-  ariaLabel: string
+  closeButtonLabel: string
   title: string
   subtitle?: string
   className?: string
@@ -13,7 +13,7 @@ type ModalPanelProps = {
 export function ModalPanel({
   isOpen,
   onClose,
-  ariaLabel,
+  closeButtonLabel,
   title,
   subtitle,
   className,
@@ -81,7 +81,6 @@ export function ModalPanel({
         onKeyDown={handlePanelKeyDown}
         role="dialog"
         aria-modal="true"
-        aria-label={ariaLabel}
         aria-labelledby={titleId}
       >
         <div className="cardHeader">
@@ -94,7 +93,7 @@ export function ModalPanel({
             type="button"
             className="paramsClose"
             onClick={onClose}
-            aria-label={`Close ${ariaLabel}`}
+            aria-label={closeButtonLabel}
           >
             ×
           </button>

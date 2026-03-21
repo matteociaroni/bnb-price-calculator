@@ -374,7 +374,7 @@ export function PlatformCalculator({
       <ModalPanel
         isOpen={Boolean(effectiveDetailView && activeTariff && derivedByTariff[activeTariff.key])}
         onClose={() => setDetailView(null)}
-        ariaLabel="Calculation breakdown"
+        closeButtonLabel="Close calculation breakdown"
         title={activeTariff ? `${name} · ${activeTariff.label}` : name}
         subtitle={effectiveDetailView ? `${effectiveDetailView.side === 'guest' ? 'Guest pays' : 'Host takes'} breakdown` : undefined}
         className="detailModalPanel"
