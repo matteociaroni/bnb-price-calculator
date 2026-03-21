@@ -294,6 +294,24 @@
   color: var(--accent);
 }
 
+.resultValue-default {
+  color: var(--text-h);
+}
+
+.resultValue-guest,
+.valueGuest {
+  color: var(--color-guest);
+}
+
+.resultValue-host,
+.valueHost {
+  color: var(--color-host);
+}
+
+.resultValue-cost {
+  color: var(--color-cost);
+}
+
 .footer {
   margin-top: 16px;
   text-align: center;
@@ -524,6 +542,17 @@
   background: rgba(124, 58, 237, 0.12);
   border-color: rgba(124, 58, 237, 0.6);
   outline: none;
+}
+
+.tariffCellButton.valueGuest:hover,
+.tariffCellButton.valueGuest:focus-visible {
+  background: rgba(124, 58, 237, 0.15);
+}
+
+.tariffCellButton.valueHost:hover,
+.tariffCellButton.valueHost:focus-visible {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.45);
 }
 
 @media (max-width: 900px) {

@@ -122,15 +122,16 @@ type BreakdownRowProps = {
   value: string
   formula?: string
   emphasis?: boolean
+  tone?: 'default' | 'guest' | 'host' | 'cost'
 }
 
-const BreakdownRow = ({ label, value, formula, emphasis = false }: BreakdownRowProps) => (
+const BreakdownRow = ({ label, value, formula, emphasis = false, tone = 'default' }: BreakdownRowProps) => (
   <div className="resultRow detailRow">
     <div>
       <div className="resultLabel">{label}</div>
       {formula && <div className="resultFormula">{formula}</div>}
     </div>
-    <div className={`resultValue${emphasis ? ' emphasis' : ''}`}>{value}</div>
+    <div className={`resultValue${emphasis ? ' emphasis' : ''} resultValue-${tone}`}>{value}</div>
   </div>
 )
 
@@ -247,6 +248,7 @@ export function PlatformCalculator({
             label="Non refundable discount"
             formula={derived.baseDiscountFormula}
             value={`−${currency.format(derived.baseDiscountTotal)}`}
+            tone="cost"
           />
         )}
 
@@ -255,6 +257,7 @@ export function PlatformCalculator({
             label="Platform fees"
             formula={`${currency.format(tariff.results.host.basePlusExtras)} × ${derived.guestFeePct.toFixed(2)}%`}
             value={currency.format(derived.guestExtraOverBase)}
+            tone="cost"
           />
         )}
 
@@ -263,12 +266,13 @@ export function PlatformCalculator({
             label="Genius discount"
             formula={`${currency.format(derived.rawBasePlusExtras)} × ${derived.geniusDiscountPct.toFixed(2)}%`}
             value={`−${currency.format(derived.geniusDiscountAmount)}`}
+            tone="cost"
           />
         )}
 
         <div className="divider" />
 
-        <BreakdownRow label="Guest pays" value={currency.format(tariff.results.guest.platformPrice)} emphasis />
+        <BreakdownRow label="Guest pays" value={currency.format(tariff.results.guest.platformPrice)} emphasis tone="guest" />
       </div>
     )
   }
@@ -282,23 +286,26 @@ export function PlatformCalculator({
           label={`Host fees${name === 'Booking' ? ' + transaction' : ''}`}
           formula={`${currency.format(tariff.results.host.basePlusExtras)} × ${derived.hostFeePct.toFixed(2)}%`}
           value={`−${currency.format(tariff.results.host.hostFees)}`}
+          tone="cost"
         />
 
         <BreakdownRow
           label="VAT on host fees"
           formula={`${currency.format(tariff.results.host.hostFees)} × ${derived.vatPct.toFixed(2)}%`}
           value={`−${currency.format(tariff.results.host.vatOnHostFees)}`}
+          tone="cost"
         />
 
         <BreakdownRow
           label="Flat tax on rental income"
           formula={`${currency.format(tariff.results.host.basePlusExtras)} × ${derived.flatTaxPct.toFixed(2)}%`}
           value={`−${currency.format(tariff.results.host.flatTax)}`}
+          tone="cost"
         />
 
         <div className="divider" />
 
-        <BreakdownRow label="Host takes" value={currency.format(tariff.results.host.netIncome)} emphasis />
+        <BreakdownRow label="Host takes" value={currency.format(tariff.results.host.netIncome)} emphasis tone="host" />
       </div>
     )
   }
@@ -349,12 +356,12 @@ export function PlatformCalculator({
                   </div>
                 </th>
                 <td>
-                  <button type="button" className="tariffCellButton" onClick={() => setDetailView({ tariffKey: tariff.key, side: 'guest' })}>
+                  <button type="button" className="tariffCellButton valueGuest" onClick={() => setDetailView({ tariffKey: tariff.key, side: 'guest' })}>
                     {currency.format(tariff.results.guest.platformPrice)}
                   </button>
                 </td>
                 <td>
-                  <button type="button" className="tariffCellButton" onClick={() => setDetailView({ tariffKey: tariff.key, side: 'host' })}>
+                  <button type="button" className="tariffCellButton valueHost" onClick={() => setDetailView({ tariffKey: tariff.key, side: 'host' })}>
                     {currency.format(tariff.results.host.netIncome)}
                   </button>
                 </td>
