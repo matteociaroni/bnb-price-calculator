@@ -1,9 +1,12 @@
+import type { ReactNode } from 'react'
+
 export type GuestSliderProps = {
   value: number
   onChange: (value: number) => void
   min?: number
   max?: number
   label?: string
+  icon?: ReactNode
   ariaLabel?: string
   tooltip?: string
 }
@@ -14,6 +17,7 @@ export function GuestSlider({
   min = 1,
   max = 10,
   label = 'Guests',
+  icon,
   ariaLabel,
   tooltip,
 }: GuestSliderProps) {
@@ -21,7 +25,10 @@ export function GuestSlider({
 
   return (
     <label className="field">
-      <span>{label}</span>
+      <span className="fieldLabel">
+        {icon && <span className="fieldLabelIcon">{icon}</span>}
+        <span>{label}</span>
+      </span>
       <div className="sliderRow">
         <input
           className="slider"

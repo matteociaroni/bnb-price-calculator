@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Moon, Settings, Users } from 'lucide-react'
 import './App.css'
 import { computeAirbnb, computeBooking } from './calculations'
 import type { PlatformParams, PlatformResults } from './calculations'
@@ -178,7 +179,8 @@ function App() {
           onClick={() => setIsParamsOpen(true)}
           aria-label="Open parameters panel"
         >
-          ⚙️ Parameters
+          <Settings size={15} strokeWidth={1.9} />
+          <span>Parameters</span>
         </button>
       </header>
 
@@ -219,13 +221,15 @@ function App() {
               <GuestSlider
                 value={guestCount}
                 onChange={setGuestCount}
-                label="👥 Guests"
+                label="Guests"
+                icon={<Users size={16} strokeWidth={1.9} />}
                 tooltip="Select the number of guests for this stay."
               />
               <GuestSlider
                 value={nightsCount}
                 onChange={setNightsCount}
-                label="🌙 Nights"
+                label="Nights"
+                icon={<Moon size={16} strokeWidth={1.9} />}
                 min={1}
                 max={30}
                 tooltip="Select the number of nights for this stay."

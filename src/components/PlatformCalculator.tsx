@@ -1,4 +1,5 @@
 import { useMemo, useState, type ReactNode } from 'react'
+import { BadgePercent, CreditCard, Landmark, Euro, UserPlus } from 'lucide-react'
 import { InputField } from './InputField'
 import { ModalPanel } from './ModalPanel'
 import type { PlatformResults } from '../calculations'
@@ -148,7 +149,8 @@ function PriceInputs({
   const priceFields = [
     {
       key: 'basePrice',
-      label: '💶 Base price',
+      label: 'Base price',
+      icon: <Euro size={16} strokeWidth={1.9} />,
       value: basePriceInput,
       onChange: setBasePriceInput,
       prefix: '€',
@@ -157,7 +159,8 @@ function PriceInputs({
     },
     {
       key: 'otherGuestPrice',
-      label: '➕👤 Other guest price',
+      label: 'Other guest price',
+      icon: <UserPlus size={16} strokeWidth={1.9} />,
       value: otherGuestPriceInput,
       onChange: setOtherGuestPriceInput,
       prefix: '€',
@@ -173,6 +176,7 @@ function PriceInputs({
           <InputField
             key={field.key}
             label={field.label}
+            icon={field.icon}
             value={field.value}
             onChange={field.onChange}
             prefix={field.prefix}
@@ -183,7 +187,8 @@ function PriceInputs({
       </div>
 
       <InputField
-        label="↘️ Non refundable discount"
+        label="Non refundable discount"
+        icon={<BadgePercent size={16} strokeWidth={1.9} />}
         value={nonRefundableDiscountInput}
         onChange={setNonRefundableDiscountInput}
         suffix="%"
@@ -321,8 +326,18 @@ export function PlatformCalculator({
           <thead>
             <tr>
               <th>Rate</th>
-              <th>💳 Guest pays</th>
-              <th>🏦 Host takes</th>
+              <th>
+                <span className="tableHeadLabel">
+                  <CreditCard size={14} strokeWidth={1.9} />
+                  <span>Guest pays</span>
+                </span>
+              </th>
+              <th>
+                <span className="tableHeadLabel">
+                  <Landmark size={14} strokeWidth={1.9} />
+                  <span>Host takes</span>
+                </span>
+              </th>
             </tr>
           </thead>
           <tbody>

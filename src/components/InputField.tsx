@@ -1,7 +1,8 @@
-import type { ChangeEvent } from 'react'
+import type { ChangeEvent, ReactNode } from 'react'
 
 export type InputFieldProps = {
   label: string
+  icon?: ReactNode
   value: string
   onChange: (value: string) => void
   ariaLabel?: string
@@ -12,6 +13,7 @@ export type InputFieldProps = {
 
 export function InputField({
   label,
+  icon,
   value,
   onChange,
   ariaLabel,
@@ -25,7 +27,10 @@ export function InputField({
 
   return (
     <label className="field">
-      <span>{label}</span>
+      <span className="fieldLabel">
+        {icon && <span className="fieldLabelIcon">{icon}</span>}
+        <span>{label}</span>
+      </span>
       <div className="inputWrap">
         {prefix && <span className="prefix">{prefix}</span>}
         <input

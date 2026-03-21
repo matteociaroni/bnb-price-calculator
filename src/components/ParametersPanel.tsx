@@ -1,5 +1,7 @@
 import { InputField } from './InputField'
 import { ModalPanel } from './ModalPanel'
+import { BadgePercent, Coins, Landmark, Percent, ReceiptText } from 'lucide-react'
+import type { ReactNode } from 'react'
 
 type StringSetter = (value: string) => void
 
@@ -23,6 +25,7 @@ export type ParametersPanelProps = {
 type ParameterField = {
   key: string
   label: string
+  icon: ReactNode
   value: string
   onChange: StringSetter
   tooltip: string
@@ -48,6 +51,7 @@ export function ParametersPanel({
     {
       key: 'vatPct',
       label: 'VAT percentage',
+      icon: <Percent size={16} strokeWidth={1.9} />,
       value: vatPctInput,
       onChange: setVatPctInput,
       tooltip: 'VAT percentage applied to platform fees charged to the host.',
@@ -55,6 +59,7 @@ export function ParametersPanel({
     {
       key: 'flatTaxPct',
       label: 'Flat tax on rental income',
+      icon: <ReceiptText size={16} strokeWidth={1.9} />,
       value: flatTaxPctInput,
       onChange: setFlatTaxPctInput,
       tooltip: 'Flat tax percentage applied to accommodation income.',
@@ -65,6 +70,7 @@ export function ParametersPanel({
     {
       key: 'airbnbGuestFeePct',
       label: 'Guest fee',
+      icon: <Coins size={16} strokeWidth={1.9} />,
       value: airbnbGuestFeePctInput,
       onChange: setAirbnbGuestFeePctInput,
       tooltip: 'Airbnb fee percentage added to what the guest pays.',
@@ -72,6 +78,7 @@ export function ParametersPanel({
     {
       key: 'airbnbHostFeePct',
       label: 'Host fee',
+      icon: <Landmark size={16} strokeWidth={1.9} />,
       value: airbnbHostFeePctInput,
       onChange: setAirbnbHostFeePctInput,
       tooltip: 'Airbnb fee percentage deducted from host accommodation revenue.',
@@ -82,6 +89,7 @@ export function ParametersPanel({
     {
       key: 'bookingHostFeePct',
       label: 'Host fee',
+      icon: <Landmark size={16} strokeWidth={1.9} />,
       value: bookingHostFeePctInput,
       onChange: setBookingHostFeePctInput,
       tooltip: 'Booking commission percentage deducted from host accommodation revenue.',
@@ -89,6 +97,7 @@ export function ParametersPanel({
     {
       key: 'bookingTransactionFeePct',
       label: 'Transaction fee',
+      icon: <BadgePercent size={16} strokeWidth={1.9} />,
       value: bookingTransactionFeePctInput,
       onChange: setBookingTransactionFeePctInput,
       tooltip: 'Additional Booking payment processing fee percentage.',
@@ -103,6 +112,7 @@ export function ParametersPanel({
             <InputField
               key={field.key}
               label={field.label}
+              icon={field.icon}
               value={field.value}
               onChange={field.onChange}
               suffix="%"
@@ -118,6 +128,7 @@ export function ParametersPanel({
             <InputField
               key={field.key}
               label={field.label}
+              icon={field.icon}
               value={field.value}
               onChange={field.onChange}
               suffix="%"
@@ -133,6 +144,7 @@ export function ParametersPanel({
             <InputField
               key={field.key}
               label={field.label}
+              icon={field.icon}
               value={field.value}
               onChange={field.onChange}
               suffix="%"
