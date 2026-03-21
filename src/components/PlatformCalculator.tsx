@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react'
+import { useMemo, useState, type ReactNode } from 'react'
 import { InputField } from './InputField'
 import type { PlatformResults } from '../calculations'
 
@@ -227,13 +227,8 @@ export function PlatformCalculator({
         return !(keyMatch || labelMatch)
       })
   const activeTariff = detailView ? visibleTariffs.find((t) => t.key === detailView.tariffKey) : null
+  const effectiveDetailView = detailView && activeTariff ? detailView : null
   const derivedByTariff = useDerivedAmounts({ tariffs: visibleTariffs, guestCount, nightCount, currency, isBooking })
-
-  useEffect(() => {
-    if (detailView && !activeTariff) {
-      setDetailView(null)
-    }
-  }, [detailView, activeTariff])
 
   const renderGuestDetails = (tariff: TariffRow, derived: DerivedAmounts) => {
     return (
@@ -357,12 +352,12 @@ export function PlatformCalculator({
         </table>
       </div>
 
-      {detailView && activeTariff && derivedByTariff[activeTariff.key] && (
+      {effectiveDetailView && activeTariff && derivedByTariff[activeTariff.key] && (
         <div className="detailModalOverlay" role="dialog" aria-modal="true">
           <div className="detailModal">
             <div className="detailModalHeader">
               <div>
-                <span className="pillLabel">{detailView.side === 'guest' ? 'Guest pays' : 'Host takes'} breakdown</span>
+                <span className="pillLabel">{effectiveDetailView.side === 'guest' ? 'Guest pays' : 'Host takes'} breakdown</span>
                 <h4 className="detailModalTitle">
                   {name} · {activeTariff.label}
                 </h4>
@@ -372,7 +367,7 @@ export function PlatformCalculator({
               </button>
             </div>
 
-            {detailView.side === 'guest'
+            {effectiveDetailView.side === 'guest'
               ? renderGuestDetails(activeTariff, derivedByTariff[activeTariff.key])
               : renderHostDetails(activeTariff, derivedByTariff[activeTariff.key])}
            </div>
