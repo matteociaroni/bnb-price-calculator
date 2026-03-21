@@ -1,28 +1,29 @@
-import type { Dispatch, SetStateAction } from 'react'
 import { InputField } from './InputField'
+
+type StringSetter = (value: string) => void
 
 export type ParametersPanelProps = {
   isOpen: boolean
   onClose: () => void
   vatPctInput: string
-  setVatPctInput: Dispatch<SetStateAction<string>>
+  setVatPctInput: StringSetter
   flatTaxPctInput: string
-  setFlatTaxPctInput: Dispatch<SetStateAction<string>>
+  setFlatTaxPctInput: StringSetter
   airbnbGuestFeePctInput: string
-  setAirbnbGuestFeePctInput: Dispatch<SetStateAction<string>>
+  setAirbnbGuestFeePctInput: StringSetter
   airbnbHostFeePctInput: string
-  setAirbnbHostFeePctInput: Dispatch<SetStateAction<string>>
+  setAirbnbHostFeePctInput: StringSetter
   bookingHostFeePctInput: string
-  setBookingHostFeePctInput: Dispatch<SetStateAction<string>>
+  setBookingHostFeePctInput: StringSetter
   bookingTransactionFeePctInput: string
-  setBookingTransactionFeePctInput: Dispatch<SetStateAction<string>>
+  setBookingTransactionFeePctInput: StringSetter
 }
 
 type ParameterField = {
   key: string
   label: string
   value: string
-  onChange: Dispatch<SetStateAction<string>>
+  onChange: StringSetter
 }
 
 export function ParametersPanel({
