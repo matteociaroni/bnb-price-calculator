@@ -290,11 +290,11 @@
 }
 
 .parametersCard {
-  /* colonna sinistra più stretta */
+  /* narrower left column */
 }
 
 .calculatorCard {
-  /* colonna destra più larga */
+  /* wider right column */
 }
 
 .calculatorGrid {
@@ -382,7 +382,7 @@
   color: var(--accent);
 }
 
-/* Booking ora usa lo stesso colore accent di Airbnb per il titolo */
+/* Booking uses the same accent color as Airbnb for the title */
 .airbnbPanel .subTitle,
 .bookingPanel .subTitle {
   color: var(--accent);
@@ -526,12 +526,12 @@
     display: none;
   }
 
-  /* su mobile la sezione controlli ha una sola colonna */
+  /* on mobile, controls use a single column */
   .calculatorControls {
     grid-template-columns: 1fr;
   }
 
-  /* e i due slider vanno uno sotto l'altro */
+  /* and the two sliders stack vertically */
   .calculatorControls-slidersRow {
     grid-template-columns: 1fr;
   }
