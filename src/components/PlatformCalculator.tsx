@@ -68,14 +68,15 @@ function useDerivedAmounts({ tariffs, guestCount, nightCount, currency, isBookin
     const map: Record<string, DerivedAmounts> = {}
 
     tariffs.forEach((tariff) => {
+      const additionalGuests = Math.max(0, guestCount - 1)
       const originalBasePrice = tariff.basePriceBeforeDiscount ?? tariff.basePrice
-      const extraPerNight = Math.max(0, guestCount - 1) * tariff.otherGuestPrice
+      const extraPerNight = additionalGuests * tariff.otherGuestPrice
       const perNightBeforeDiscount = originalBasePrice + extraPerNight
       const perNightAfterDiscount = tariff.basePrice + extraPerNight
-      const perNightTextBeforeDiscount = `(${currency.format(originalBasePrice)} + ${Math.max(0, guestCount - 1)} × ${currency.format(
+      const perNightTextBeforeDiscount = `(${currency.format(originalBasePrice)} + ${additionalGuests} × ${currency.format(
         tariff.otherGuestPrice,
       )})`
-      const perNightTextAfterDiscount = `(${currency.format(tariff.basePrice)} + ${Math.max(0, guestCount - 1)} × ${currency.format(
+      const perNightTextAfterDiscount = `(${currency.format(tariff.basePrice)} + ${additionalGuests} × ${currency.format(
         tariff.otherGuestPrice,
       )})`
       const rawBasePlusExtrasBeforeDiscount = perNightBeforeDiscount * nightCount
