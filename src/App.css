@@ -549,6 +549,32 @@
     grid-template-columns: 1fr;
   }
 
+  .paramsToggle {
+    min-height: 44px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .bookingGeniusSelect,
+  .tariffCellButton {
+    min-height: 44px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .bookingGeniusSelect-header {
+    min-width: 160px;
+  }
+
+  .paramsClose {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+
 }
 
 @media (prefers-color-scheme: light) {
