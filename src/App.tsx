@@ -8,6 +8,12 @@ import { ParametersPanel } from './components/ParametersPanel'
 import { useNumericInput, usePersistentState } from './hooks'
 
 type PlatformParamOverrides = Partial<Omit<PlatformParams, 'basePrice' | 'otherGuestPrice' | 'guests' | 'nights'>>
+const GENIUS_DISCOUNT_BY_LEVEL: Record<0 | 1 | 2 | 3, number> = {
+  0: 0,
+  1: 10,
+  2: 15,
+  3: 20,
+}
 
 type BuildTariffsArgs = {
   basePrice: number
@@ -89,14 +95,7 @@ function App() {
   const [isParamsOpen, setIsParamsOpen] = useState(false)
   const [bookingGeniusLevel, setBookingGeniusLevel] = usePersistentState<0 | 1 | 2 | 3>('bookingGeniusLevel', 0)
 
-  const bookingGeniusPct =
-    bookingGeniusLevel === 0
-      ? 0
-      : bookingGeniusLevel === 1
-      ? 10
-      : bookingGeniusLevel === 2
-      ? 15
-      : 20
+  const bookingGeniusPct = GENIUS_DISCOUNT_BY_LEVEL[bookingGeniusLevel]
 
   const airbnbTariffs = useMemo<TariffRow[]>(() =>
     buildPlatformTariffs({
