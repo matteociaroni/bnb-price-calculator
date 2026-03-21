@@ -9,7 +9,6 @@ import type { PlatformResults } from '../calculations'
 export type TariffRow = {
   key: string
   label: string
-  badge?: string
   basePrice: number
   otherGuestPrice: number
   basePriceBeforeDiscount: number

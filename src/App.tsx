@@ -17,8 +17,6 @@ type BuildTariffsArgs = {
   compute: (params: PlatformParams) => PlatformResults
   extraParams?: PlatformParamOverrides
   nonRefundableDiscount: number
-  baseBadge: string
-  nonRefundableBadgeFormatter?: (discountPct: number) => string
 }
 
 function buildPlatformTariffs({
@@ -29,8 +27,6 @@ function buildPlatformTariffs({
   compute,
   extraParams = {},
   nonRefundableDiscount,
-  baseBadge,
-  nonRefundableBadgeFormatter,
 }: BuildTariffsArgs): TariffRow[] {
   const normalizedGuests = Math.max(1, guests)
   const normalizedNights = Math.max(1, nights)
@@ -47,7 +43,6 @@ function buildPlatformTariffs({
     {
       key: 'base',
       label: 'Base',
-      badge: baseBadge,
       basePrice,
       otherGuestPrice,
       basePriceBeforeDiscount: basePrice,
@@ -65,7 +60,6 @@ function buildPlatformTariffs({
     tariffs.push({
       key: 'nonref',
       label: 'Non refundable',
-      badge: nonRefundableBadgeFormatter?.(discount) ?? `−${discount.toFixed(0)}%`,
       basePrice: discountedParams.basePrice,
       otherGuestPrice,
       basePriceBeforeDiscount: basePrice,
@@ -118,8 +112,6 @@ function App() {
         flatTaxPct: flatTaxPct.value,
       },
       nonRefundableDiscount: airbnbNonRefundableDiscount.value,
-      baseBadge: 'Standard',
-      nonRefundableBadgeFormatter: (discountPct) => `−${discountPct.toFixed(0)}%`,
     }),
   [
     airbnbGuestFeePct.value,
@@ -148,12 +140,9 @@ function App() {
         geniusDiscountPct: bookingGeniusPct,
       },
       nonRefundableDiscount: bookingNonRefundableDiscount.value,
-      baseBadge: bookingGeniusPct ? `Genius ${bookingGeniusLevel}` : 'Standard',
-      nonRefundableBadgeFormatter: (discountPct) => `−${discountPct.toFixed(0)}%`,
     }),
   [
     bookingBasePrice.value,
-    bookingGeniusLevel,
     bookingGeniusPct,
     bookingHostFeePct.value,
     bookingNonRefundableDiscount.value,
