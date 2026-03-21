@@ -1,6 +1,6 @@
 .page {
   min-height: 100svh;
-  padding: 28px 16px 40px;
+  padding: 32px 16px 48px;
   box-sizing: border-box;
   max-width: 1200px;
   margin: 0 auto;
@@ -10,11 +10,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 14px;
+  padding: 16px;
   border: 1px solid var(--border);
   background: var(--panel);
   box-shadow: var(--shadow);
-  border-radius: 14px;
+  border-radius: 16px;
   backdrop-filter: blur(8px);
 }
 
@@ -34,6 +34,7 @@
 }
 
 .title {
+  font-size: 1.2rem;
   font-weight: 650;
   letter-spacing: -0.2px;
   color: var(--text-h);
@@ -41,15 +42,15 @@
 }
 
 .subtitle {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text);
 }
 
 .layout {
-  margin-top: 18px;
+  margin-top: 22px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 1.5rem;
+  gap: 1.75rem;
   align-items: flex-start;
 }
 
@@ -62,7 +63,7 @@
   background: var(--panel);
   box-shadow: var(--shadow);
   border-radius: 16px;
-  padding: 16px;
+  padding: 20px;
 }
 
 .cardHeader {
@@ -70,7 +71,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .cardHeader-main {
@@ -87,29 +88,30 @@
 
 .card h2 {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 700;
   letter-spacing: -0.2px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 14px;
 }
 
 .field {
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
 
 .feesRow {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 14px;
 }
 
 .sectionLabel {
-  margin-top: 4px;
+  margin-top: 6px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -117,9 +119,9 @@
 }
 
 .field > span:first-child {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-h);
-  font-weight: 600;
+  font-weight: 650;
 }
 
 .muted {
@@ -220,11 +222,11 @@
 }
 
 .results {
-  margin-top: 16px;
+  margin-top: 20px;
   border-top: 1px solid var(--border);
-  padding-top: 14px;
+  padding-top: 18px;
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
 
 .divider {
@@ -258,20 +260,22 @@
 }
 
 .resultLabel {
-  font-weight: 650;
+  font-weight: 600;
   color: var(--text-h);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .resultFormula {
-  margin-top: 4px;
+  margin-top: 5px;
   font-size: 12px;
   color: var(--text);
+  line-height: 1.35;
 }
 
 .resultValue {
   font-variant-numeric: tabular-nums;
-  font-weight: 700;
+  font-size: 1.02rem;
+  font-weight: 750;
   color: var(--text-h);
 }
 
@@ -308,7 +312,7 @@
   background: var(--panel);
   color: var(--text-h);
   border-radius: 999px;
-  padding: 6px 12px;
+  padding: 7px 13px;
   font-size: 12px;
   cursor: pointer;
 }
@@ -328,7 +332,7 @@
   max-height: 90vh;
   margin: 0;
   overflow: auto;
-  background: rgba(37, 37, 37, 0.7);
+  background: var(--panel);
 }
 
 .paramsClose {
@@ -341,27 +345,28 @@
 }
 
 .subTitle {
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 1.12rem;
+  font-weight: 650;
   margin: 0;
 }
 
 /* New layout for controls and platform panels */
 .calculatorControls {
-  padding: 8px 0 18px;
+  padding: 10px 0 22px;
 }
 
 .calculatorControls-slidersRow {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
 .platformPanel {
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid var(--border);
   background: var(--panel);
-  padding: 14px;
+  padding: 16px;
+  box-shadow: var(--shadow);
 }
 
 .calculatorColumnHeader {
@@ -369,7 +374,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .platformPanel .subTitle {
@@ -410,15 +415,16 @@
 .detailModalPanel {
   width: min(520px, 95vw);
   max-height: 90vh;
+  padding: 20px;
 }
 
 .detailRows {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .detailRow {
-  padding: 8px 0;
+  padding: 10px 0;
 }
 
 .tariffsTable {
