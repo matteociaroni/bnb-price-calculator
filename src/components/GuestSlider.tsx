@@ -5,6 +5,7 @@ export type GuestSliderProps = {
   max?: number
   label?: string
   ariaLabel?: string
+  tooltip?: string
 }
 
 export function GuestSlider({
@@ -14,6 +15,7 @@ export function GuestSlider({
   max = 10,
   label = 'Guests',
   ariaLabel,
+  tooltip,
 }: GuestSliderProps) {
   const effectiveAriaLabel = ariaLabel ?? `Number of ${label.toLowerCase()}`
 
@@ -30,6 +32,7 @@ export function GuestSlider({
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
           aria-label={effectiveAriaLabel}
+          title={tooltip}
         />
         <div className="pill" aria-label={`${label} selected: ${value}`}>
           {value}

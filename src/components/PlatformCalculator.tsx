@@ -153,6 +153,7 @@ function PriceInputs({
       onChange: setBasePriceInput,
       prefix: '€',
       ariaLabel: `Base price for ${name}`,
+      tooltip: `Base nightly price set on ${name}.`,
     },
     {
       key: 'otherGuestPrice',
@@ -161,6 +162,7 @@ function PriceInputs({
       onChange: setOtherGuestPriceInput,
       prefix: '€',
       ariaLabel: `Other guest price for ${name}`,
+      tooltip: 'Extra amount charged per additional guest per night.',
     },
   ] as const
 
@@ -175,6 +177,7 @@ function PriceInputs({
             onChange={field.onChange}
             prefix={field.prefix}
             ariaLabel={field.ariaLabel}
+            tooltip={field.tooltip}
           />
         ))}
       </div>
@@ -185,6 +188,7 @@ function PriceInputs({
         onChange={setNonRefundableDiscountInput}
         suffix="%"
         ariaLabel={`Non refundable discount for ${name}`}
+        tooltip="Discount percentage applied to the base nightly price for non-refundable rates."
       />
     </div>
   )

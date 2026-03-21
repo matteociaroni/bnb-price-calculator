@@ -25,6 +25,7 @@ type ParameterField = {
   label: string
   value: string
   onChange: StringSetter
+  tooltip: string
 }
 
 export function ParametersPanel({
@@ -44,22 +45,53 @@ export function ParametersPanel({
   setBookingTransactionFeePctInput,
 }: ParametersPanelProps) {
   const globalFields: ParameterField[] = [
-    { key: 'vatPct', label: 'VAT percentage', value: vatPctInput, onChange: setVatPctInput },
-    { key: 'flatTaxPct', label: 'Flat tax on rental income', value: flatTaxPctInput, onChange: setFlatTaxPctInput },
+    {
+      key: 'vatPct',
+      label: 'VAT percentage',
+      value: vatPctInput,
+      onChange: setVatPctInput,
+      tooltip: 'VAT percentage applied to platform fees charged to the host.',
+    },
+    {
+      key: 'flatTaxPct',
+      label: 'Flat tax on rental income',
+      value: flatTaxPctInput,
+      onChange: setFlatTaxPctInput,
+      tooltip: 'Flat tax percentage applied to accommodation income.',
+    },
   ]
 
   const airbnbFields: ParameterField[] = [
-    { key: 'airbnbGuestFeePct', label: 'Guest fee', value: airbnbGuestFeePctInput, onChange: setAirbnbGuestFeePctInput },
-    { key: 'airbnbHostFeePct', label: 'Host fee', value: airbnbHostFeePctInput, onChange: setAirbnbHostFeePctInput },
+    {
+      key: 'airbnbGuestFeePct',
+      label: 'Guest fee',
+      value: airbnbGuestFeePctInput,
+      onChange: setAirbnbGuestFeePctInput,
+      tooltip: 'Airbnb fee percentage added to what the guest pays.',
+    },
+    {
+      key: 'airbnbHostFeePct',
+      label: 'Host fee',
+      value: airbnbHostFeePctInput,
+      onChange: setAirbnbHostFeePctInput,
+      tooltip: 'Airbnb fee percentage deducted from host accommodation revenue.',
+    },
   ]
 
   const bookingFields: ParameterField[] = [
-    { key: 'bookingHostFeePct', label: 'Host fee', value: bookingHostFeePctInput, onChange: setBookingHostFeePctInput },
+    {
+      key: 'bookingHostFeePct',
+      label: 'Host fee',
+      value: bookingHostFeePctInput,
+      onChange: setBookingHostFeePctInput,
+      tooltip: 'Booking commission percentage deducted from host accommodation revenue.',
+    },
     {
       key: 'bookingTransactionFeePct',
       label: 'Transaction fee',
       value: bookingTransactionFeePctInput,
       onChange: setBookingTransactionFeePctInput,
+      tooltip: 'Additional Booking payment processing fee percentage.',
     },
   ]
 
@@ -68,7 +100,14 @@ export function ParametersPanel({
       <div className="grid">
         <div className="feesRow">
           {globalFields.map((field) => (
-            <InputField key={field.key} label={field.label} value={field.value} onChange={field.onChange} suffix="%" />
+            <InputField
+              key={field.key}
+              label={field.label}
+              value={field.value}
+              onChange={field.onChange}
+              suffix="%"
+              tooltip={field.tooltip}
+            />
           ))}
         </div>
 
@@ -76,7 +115,14 @@ export function ParametersPanel({
 
         <div className="feesRow">
           {airbnbFields.map((field) => (
-            <InputField key={field.key} label={field.label} value={field.value} onChange={field.onChange} suffix="%" />
+            <InputField
+              key={field.key}
+              label={field.label}
+              value={field.value}
+              onChange={field.onChange}
+              suffix="%"
+              tooltip={field.tooltip}
+            />
           ))}
         </div>
 
@@ -84,7 +130,14 @@ export function ParametersPanel({
 
         <div className="feesRow">
           {bookingFields.map((field) => (
-            <InputField key={field.key} label={field.label} value={field.value} onChange={field.onChange} suffix="%" />
+            <InputField
+              key={field.key}
+              label={field.label}
+              value={field.value}
+              onChange={field.onChange}
+              suffix="%"
+              tooltip={field.tooltip}
+            />
           ))}
         </div>
       </div>

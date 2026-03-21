@@ -216,8 +216,20 @@ function App() {
 
           <div className="calculatorControls">
             <div className="calculatorControls-slidersRow">
-              <GuestSlider value={guestCount} onChange={setGuestCount} label="👥 Guests" />
-              <GuestSlider value={nightsCount} onChange={setNightsCount} label="🌙 Nights" min={1} max={30}/>
+              <GuestSlider
+                value={guestCount}
+                onChange={setGuestCount}
+                label="👥 Guests"
+                tooltip="Select the number of guests for this stay."
+              />
+              <GuestSlider
+                value={nightsCount}
+                onChange={setNightsCount}
+                label="🌙 Nights"
+                min={1}
+                max={30}
+                tooltip="Select the number of nights for this stay."
+              />
             </div>
           </div>
 
@@ -256,6 +268,7 @@ function App() {
                     className="bookingGeniusSelect bookingGeniusSelect-header"
                     value={bookingGeniusLevel}
                     onChange={(e) => setBookingGeniusLevel(Number(e.target.value) as 0 | 1 | 2 | 3)}
+                    title="Choose the Booking Genius level discount applied to the guest price."
                   >
                     <option value={0}>Genius: Off</option>
                     <option value={1}>Level 1 (10%)</option>
