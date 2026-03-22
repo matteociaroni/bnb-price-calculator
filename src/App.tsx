@@ -202,18 +202,13 @@ function App() {
       />
 
       <main className="layout layoutSingle">
-        <section className="card calculatorCard">
+        <section className="card calculatorCard scenarioCard">
           <div className="cardHeader">
-            <div className="cardHeader-main">
-              <h2>Calculator</h2>
-              <div className="cardHeader-sub">
-                <span className="pillLabel">Scenario</span>
-                <span className="pillValue">
-                  {guestCount} guest{guestCount === 1 ? '' : 's'} · {nightsCount} night
-                  {nightsCount === 1 ? '' : 's'}
-                </span>
-              </div>
-            </div>
+            <h2>Scenario</h2>
+            <span className="pillValue">
+              {guestCount} guest{guestCount === 1 ? '' : 's'} · {nightsCount} night
+              {nightsCount === 1 ? '' : 's'}
+            </span>
           </div>
 
           <div className="calculatorControls">
@@ -236,7 +231,9 @@ function App() {
               />
             </div>
           </div>
+        </section>
 
+        <section className="platformsSection" aria-label="Platform calculators">
           <div className="calculatorGrid">
             <div className="platformPanel airbnbPanel">
               <PlatformCalculator

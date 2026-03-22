@@ -352,17 +352,25 @@ export function PlatformCalculator({
           <tbody>
             {visibleTariffs.map((tariff) => (
               <tr key={tariff.key}>
-                <th>
+                <th data-label="Rate">
                   <div className="tariffLabel">
                     <span>{tariff.label}</span>
                   </div>
                 </th>
-                <td>
+                <td data-label="Guest pays">
+                  <span className="mobileCellLabel">
+                    <CreditCard size={14} strokeWidth={1.9} />
+                    <span>Guest pays</span>
+                  </span>
                   <button type="button" className="tariffCellButton valueGuest" onClick={() => setDetailView({ tariffKey: tariff.key, side: 'guest' })}>
                     {currency.format(tariff.results.guest.platformPrice)}
                   </button>
                 </td>
-                <td>
+                <td data-label="Host takes">
+                  <span className="mobileCellLabel">
+                    <Landmark size={14} strokeWidth={1.9} />
+                    <span>Host takes</span>
+                  </span>
                   <button type="button" className="tariffCellButton valueHost" onClick={() => setDetailView({ tariffKey: tariff.key, side: 'host' })}>
                     {currency.format(tariff.results.host.netIncome)}
                   </button>

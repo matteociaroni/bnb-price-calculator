@@ -56,6 +56,7 @@
 
 .layoutSingle {
   grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 .card {
@@ -325,6 +326,18 @@
   /* wider right column */
 }
 
+.scenarioCard .calculatorControls {
+  padding-bottom: 0;
+}
+
+.scenarioCard .cardHeader {
+  align-items: center;
+}
+
+.platformsSection {
+  display: grid;
+}
+
 .calculatorGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -393,6 +406,17 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+}
+
+.pillValue {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: var(--text-h);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .platformPanel {
@@ -521,6 +545,12 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.mobileCellLabel {
+  display: none;
 }
 
 .tariffCellButton {
@@ -556,8 +586,30 @@
 }
 
 @media (max-width: 900px) {
+  .page {
+    padding: 20px 12px 28px;
+  }
+
+  .topbar {
+    padding: 12px;
+  }
+
   .layout {
     grid-template-columns: 1fr;
+    margin-top: 14px;
+  }
+
+  .layoutSingle {
+    gap: 12px;
+  }
+
+  .card {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .cardHeader {
+    margin-bottom: 12px;
   }
 
   .calculatorGrid {
@@ -576,6 +628,21 @@
   /* and the two sliders stack vertically */
   .calculatorControls-slidersRow {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .calculatorControls {
+    padding: 6px 0 10px;
+  }
+
+  .feesRow {
+    gap: 10px;
+  }
+
+  .results {
+    margin-top: 14px;
+    padding-top: 12px;
+    gap: 10px;
   }
 
   .paramsToggle {
@@ -595,6 +662,11 @@
     min-width: 160px;
   }
 
+  .tariffsTable th,
+  .tariffsTable td {
+    padding: 9px 10px;
+  }
+
   .paramsClose {
     min-width: 44px;
     min-height: 44px;
@@ -604,6 +676,83 @@
     border-radius: 10px;
   }
 
+}
+
+@media (max-width: 520px) {
+  .tariffsTable {
+    border: 0;
+    background: transparent;
+  }
+
+  .tariffsTable thead {
+    display: none;
+  }
+
+  .tariffsTable,
+  .tariffsTable tbody,
+  .tariffsTable tr,
+  .tariffsTable th,
+  .tariffsTable td {
+    display: block;
+    width: 100%;
+  }
+
+  .tariffsTable tbody {
+    display: grid;
+    gap: 8px;
+  }
+
+  .tariffsTable tbody tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px;
+  }
+
+  .tariffsTable tbody tr:nth-child(even),
+  .tariffsTable tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .tariffsTable tbody th,
+  .tariffsTable tbody td {
+    border: 0;
+    padding: 0;
+    min-width: 0;
+    width: auto;
+  }
+
+  .tariffsTable tbody th {
+    grid-column: 1 / -1;
+    padding-top: 4px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4px;
+  }
+
+  .tariffsTable tbody tr:last-child th {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tariffsTable tbody th .tariffLabel {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .mobileCellLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
 }
 
 @media (prefers-color-scheme: light) {
