@@ -21,7 +21,7 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
 .mark {
@@ -47,10 +47,10 @@
 }
 
 .layout {
-  margin-top: 22px;
+  margin-top: 24px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 1.75rem;
+  gap: 24px;
   align-items: flex-start;
 }
 
@@ -64,26 +64,26 @@
   background: var(--panel);
   box-shadow: var(--shadow);
   border-radius: 16px;
-  padding: 20px;
+  padding: 24px;
 }
 
 .cardHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
 .cardHeader-main {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
 
 .cardHeader-sub {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
 }
 
@@ -97,22 +97,22 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 16px;
 }
 
 .field {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .feesRow {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 16px;
 }
 
 .sectionLabel {
-  margin-top: 6px;
+  margin-top: 8px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -149,7 +149,7 @@
   border: 1px solid var(--border);
   background: var(--input);
   border-radius: 12px;
-  padding: 10px 12px;
+  padding: 8px 16px;
 }
 
 .prefix,
@@ -184,7 +184,7 @@
   border: 1px solid var(--border);
   background: var(--input);
   border-radius: 12px;
-  padding: 10px 12px;
+  padding: 8px 16px;
 }
 
 .pill {
@@ -234,30 +234,30 @@
 }
 
 .results {
-  margin-top: 20px;
+  margin-top: 24px;
   border-top: 1px solid var(--border);
-  padding-top: 18px;
+  padding-top: 16px;
   display: grid;
-  gap: 14px;
+  gap: 16px;
 }
 
 .divider {
   height: 1px;
   background: var(--border);
-  margin: 2px 0;
+  margin: 8px 0;
 }
 
 .resultRow {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 12px;
+  gap: 16px;
   align-items: center;
 }
 
 .resultRow-action {
   cursor: pointer;
   border-radius: 12px;
-  padding: 10px 12px;
+  padding: 8px 16px;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
@@ -278,7 +278,7 @@
 }
 
 .resultFormula {
-  margin-top: 5px;
+  margin-top: 8px;
   font-size: 12px;
   color: var(--text);
   line-height: 1.35;
@@ -352,12 +352,12 @@
 .paramsToggle {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   border: 1px solid var(--border);
   background: var(--panel);
   color: var(--text-h);
   border-radius: 999px;
-  padding: 7px 13px;
+  padding: 8px 16px;
   font-size: 12px;
   cursor: pointer;
 }
@@ -399,13 +399,13 @@
 
 /* New layout for controls and platform panels */
 .calculatorControls {
-  padding: 10px 0 22px;
+  padding: 8px 0 24px;
 }
 
 .calculatorControls-slidersRow {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 16px;
 }
 
 .pillValue {
@@ -413,7 +413,7 @@
   align-items: center;
   border: 1px solid var(--border);
   border-radius: 999px;
-  padding: 4px 10px;
+  padding: 8px 16px;
   font-size: 12px;
   color: var(--text-h);
   background: rgba(255, 255, 255, 0.04);
@@ -431,7 +431,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
   margin-bottom: 1rem;
 }
 
@@ -478,11 +478,11 @@
 
 .detailRows {
   display: grid;
-  gap: 12px;
+  gap: 16px;
 }
 
 .detailRow {
-  padding: 10px 0;
+  padding: 8px 0;
 }
 
 .tariffsTable {
@@ -498,7 +498,7 @@
 
 .tariffsTable th,
 .tariffsTable td {
-  padding: 11px 12px;
+  padding: 8px 16px;
   text-align: left;
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
@@ -516,7 +516,7 @@
 .tableHeadLabel {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .tariffsTable tbody tr:nth-child(even) {
@@ -544,7 +544,7 @@
 .tariffLabel {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 0.95rem;
   line-height: 1.25;
 }
@@ -562,7 +562,7 @@
   color: var(--text-h);
   font-weight: 600;
   font-variant-numeric: tabular-nums;
-  padding: 8px 10px;
+  padding: 8px 16px;
   cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
@@ -587,29 +587,29 @@
 
 @media (max-width: 900px) {
   .page {
-    padding: 20px 12px 28px;
+    padding: 24px 16px 32px;
   }
 
   .topbar {
-    padding: 12px;
+    padding: 16px;
   }
 
   .layout {
     grid-template-columns: 1fr;
-    margin-top: 14px;
+    margin-top: 16px;
   }
 
   .layoutSingle {
-    gap: 12px;
+    gap: 16px;
   }
 
   .card {
-    padding: 14px;
-    border-radius: 14px;
+    padding: 16px;
+    border-radius: 16px;
   }
 
   .cardHeader {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .calculatorGrid {
@@ -628,34 +628,34 @@
   /* and the two sliders stack vertically */
   .calculatorControls-slidersRow {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 16px;
   }
 
   .calculatorControls {
-    padding: 6px 0 10px;
+    padding: 8px 0 16px;
   }
 
   .feesRow {
-    gap: 10px;
+    gap: 8px;
   }
 
   .results {
-    margin-top: 14px;
-    padding-top: 12px;
-    gap: 10px;
+    margin-top: 16px;
+    padding-top: 16px;
+    gap: 8px;
   }
 
   .paramsToggle {
     min-height: 44px;
-    padding: 10px 14px;
+    padding: 8px 16px;
     font-size: 13px;
   }
 
   .bookingGeniusSelect,
   .tariffCellButton {
     min-height: 44px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
   .bookingGeniusSelect-header {
@@ -664,7 +664,7 @@
 
   .tariffsTable th,
   .tariffsTable td {
-    padding: 9px 10px;
+    padding: 8px;
   }
 
   .paramsClose {
@@ -705,11 +705,11 @@
   .tariffsTable tbody tr {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px 10px;
+    gap: 8px;
     border: 1px solid var(--border);
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.03);
-    padding: 10px;
+    padding: 8px;
   }
 
   .tariffsTable tbody tr:nth-child(even),
@@ -727,10 +727,10 @@
 
   .tariffsTable tbody th {
     grid-column: 1 / -1;
-    padding-top: 4px;
+    padding-top: 8px;
     padding-bottom: 8px;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 4px;
+    margin-bottom: 8px;
   }
 
   .tariffsTable tbody tr:last-child th {
@@ -745,12 +745,12 @@
   .mobileCellLabel {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--text);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     font-weight: 700;
   }
 }
